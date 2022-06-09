@@ -23,6 +23,11 @@ public class LoginServlet extends HttpServlet {
             session.invalidate();
         }
         
+        if(session.getAttribute("username") != null) {
+            response.sendRedirect("home");
+            return;
+        }
+        
         //Load the JSP
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         return;
