@@ -58,6 +58,8 @@ public class LoginServlet extends HttpServlet {
             return;
         }
 
+        session.setAttribute("username", username);
+        
         response.sendRedirect("home");
         return;
     }
