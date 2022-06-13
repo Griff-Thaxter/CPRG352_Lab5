@@ -22,12 +22,12 @@ public class LoginServlet extends HttpServlet {
             request.setAttribute("logoutMessage", true);
             session.invalidate();
         }
-        
-        if(session.getAttribute("username") != null) {
-            response.sendRedirect("home");
-            return;
+        else {
+            if(session.getAttribute("username") != null) {
+                response.sendRedirect("home");
+                return;
+            }
         }
-        
         //Load the JSP
         getServletContext().getRequestDispatcher("/WEB-INF/login.jsp").forward(request, response);
         return;
